@@ -6,3 +6,6 @@
 !.gitignore
 !README.md
 !LICENSE
+!index.html
+!src/
+!*.jsx
