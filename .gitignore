@@ -1,0 +1,8 @@
+#block all by default
+*
+**/*
+
+#allowed
+!.gitignore
+!README.md
+!LICENSE
