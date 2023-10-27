@@ -8,12 +8,16 @@ export default function Sidebar({noteArray, currentNotePos, addNote}) {
         });
     }
 
-    const [sideNotes, setSideNotes] = useState(setContent());
+    const [sidebarNotes, setSidebarNotes] = useState(setContent());
+
+    useEffect(()=>{
+        setSidebarNotes(setContent)
+    }, [noteArray])
 
     return (
         <aside>
             <button onClick={addNote}>+</button>
-            {sideNotes}
+            {sidebarNotes}
         </aside>
     )
 }
