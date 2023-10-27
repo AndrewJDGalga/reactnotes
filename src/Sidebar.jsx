@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 export default function Sidebar({noteArray, currentNotePos, addNote, removeNote}) {
 
     function setContent() {
+        if(noteArray.length <= 0) return [];
+
         return noteArray.map((item)=>{
             return <div key={item.id}>
                     <button>{item.title}</button>

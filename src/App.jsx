@@ -27,7 +27,13 @@ function App() {
   }
 
   function trashNote(id) {
-    console.log(id);
+    setNotes(prev=>{
+      if(prev.length > 1) {
+        return prev.filter(note => note.id !== id);
+      } else {
+        return [new Note(prev.length, newNotePhrase)];
+      }
+    });
   }
 
   return (
