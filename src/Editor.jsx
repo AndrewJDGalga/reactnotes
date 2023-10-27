@@ -8,7 +8,7 @@ export default function Editor() {
                 <button>Underline</button>
                 <button>Strikethrough</button>
             </div>
-            <textarea>Enter note here...</textarea>
+            <textarea defaultValue="Enter note here..."></textarea>
         </article>
     )
 }
