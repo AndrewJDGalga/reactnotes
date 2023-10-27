@@ -1,14 +1,19 @@
+import { useEffect, useState } from "react"
 
-export default function Sidebar({noteArray, currentNotePos}) {
-    console.log(noteArray[currentNotePos].title);
+export default function Sidebar({noteArray, currentNotePos, addNote}) {
 
-    const notes = noteArray.map((item)=>{
-        return <h3 key={item.id}>{item.title}</h3>
-    })
+    function setContent() {
+        return noteArray.map((item)=>{
+            return <h3 key={item.id}>{item.title}</h3>
+        });
+    }
+
+    const [sideNotes, setSideNotes] = useState(setContent());
 
     return (
         <aside>
-            {notes}
+            <button onClick={addNote}>+</button>
+            {sideNotes}
         </aside>
     )
 }
