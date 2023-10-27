@@ -4,7 +4,10 @@ export default function Sidebar({noteArray, currentNotePos, addNote}) {
 
     function setContent() {
         return noteArray.map((item)=>{
-            return <h3 key={item.id}>{item.title}</h3>
+            return <div key={item.id}>
+                    <button>{item.title}</button>
+                    <button >&#x1F5D1;</button>
+                </div>
         });
     }
 

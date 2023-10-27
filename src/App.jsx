@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar"
 import Editor from "./Editor"
+import "./style.css"
 
 class Note {
   constructor(id, title) {
@@ -23,6 +24,10 @@ function App() {
       return [...prev, new Note(prev.length, newNotePhrase)]
     });
     console.log(notes);
+  }
+
+  function trashNote(id) {
+
   }
 
   return (
