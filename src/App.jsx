@@ -27,12 +27,12 @@ function App() {
   }
 
   function trashNote(id) {
-
+    console.log(id);
   }
 
   return (
     <main>
-      <Sidebar noteArray={notes} currentNotePos={selectedNote} addNote={newNote} />
+      <Sidebar noteArray={notes} currentNotePos={selectedNote} addNote={newNote} removeNote={trashNote} />
       <Editor />
     </main>
   )
