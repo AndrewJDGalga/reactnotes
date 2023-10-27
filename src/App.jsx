@@ -32,7 +32,6 @@ function App() {
         return prev.filter(note => note.id !== id);
       } else {
         return [new Note(prev.length-1, newNotePhrase)];
-        console.log(notes);
       }
     });
   }
