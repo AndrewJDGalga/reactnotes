@@ -14,7 +14,6 @@ body {
 .noteapp-container {
     display: flex;
     width: 100%;
-    margin: 0 auto;
     min-height: 100vh;
 }
 
@@ -54,7 +53,6 @@ body {
     background-color: transparent;
     border: none;
     font-size: larger;
-    margin: 4px;
 }
 
 .editor-textstyle button:hover,
@@ -62,6 +60,11 @@ body {
     background-color: var(--special-color);
     color: var(--bg-color);
     border-radius: 4px;
+}
+
+#editor-titlewindow {
+    font-size: 2em;
+    margin: 8px 1em 0;
 }
 
 #editor-textwindow {
