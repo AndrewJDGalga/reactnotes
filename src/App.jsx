@@ -7,7 +7,8 @@ class Note {
   constructor(id, title) {
     this.id = id,
     this.title = title,
-    this.content = ""
+    this.content = "",
+    this.selected = false
   }
 }
 
@@ -16,8 +17,8 @@ function App() {
   const [notes, setNotes] = useState([
     new Note(0, newNotePhrase),
   ]);
-  const [selectedNote, setSelectedNote] = useState(0);
-  const [currentNote, setCurrentNote] = useState(notes[selectedNote]);
+  //const [notePos, setNotePos] = useState(0);
+  const [selectedNote, setSelectedNote] = useState(notes[0]);
 
   function newNote() {
     setNotes( prev=>{
@@ -36,9 +37,18 @@ function App() {
     });
   }
 
+  function setCurrentNote(id){
+    /*
+    setSelectedNote(prev=>{
+      return [
+        if()
+      ]
+    });*/
+  }
+
   return (
     <main className="noteapp-container">
-      <Sidebar noteArray={notes} currentNotePos={selectedNote} addNote={newNote} removeNote={trashNote} />
+      <Sidebar noteArray={notes} currentNotePos={setCurrentNote} addNote={newNote} removeNote={trashNote} />
       <Editor />
     </main>
   )

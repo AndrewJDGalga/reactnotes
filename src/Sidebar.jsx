@@ -6,8 +6,8 @@ export default function Sidebar({noteArray, currentNotePos, addNote, removeNote}
         if(noteArray.length <= 0) return [];
 
         return noteArray.map((item)=>{
-            return <div className="notes_sidebar-note" key={item.id}>
-                    <button>{item.title}</button>
+            return <div className={"notes_sidebar-note " + (item.selected && "notes_sidebar-note_selected")} key={item.id}>
+                    <button onClick={()=>currentNotePos(item.id)}>{item.title}</button>
                     <button onClick={()=>removeNote(item.id)}>&#x1F5D1;</button>
                 </div>
         });
