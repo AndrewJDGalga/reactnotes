@@ -1,4 +1,10 @@
 
+:root {
+    --bg-color: white;
+    --txt-color: black;
+    --special-color: #983f3f;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -6,14 +12,19 @@ body {
 
 .notes_sidebar {
     float: left;
-    height: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    width: 3em;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
 }
 
 .notes_sidebar-note {
-    transform-origin: top right;
+    position: relative;
+    /*transform-origin: top left;*/
     transform: rotate(270deg);
+    display: flex;
 }
 
 #notes_sidebar-add_note {
