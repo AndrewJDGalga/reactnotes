@@ -3,12 +3,17 @@
     --bg-color: white;
     --txt-color: black;
     --special-color: #983f3f;
+    --common-spacing: 8px;
 }
 
 body {
     margin: 0;
     background-color: var(--bg-color);
     color: var(--txt-color);
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .noteapp-container {
@@ -20,6 +25,7 @@ body {
 .notes_sidebar {
     width: 4em;
     overflow-y: auto;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -37,16 +43,27 @@ body {
 }
 
 #notes_sidebar-add_note {
+    width: 48px;
+    height: 48px;
+    margin: var(--common-spacing) auto;
+    background-color: var(--txt-color);
+    color: var(--bg-color);
+    border-style: none;
+    border-radius: 4px;
+}
 
+#notes_sidebar-add_note:hover {
+    background-color: var(--special-color);
 }
 
 .editor {
     width: 100%;
     height: 100%;
+    margin-left: 1em;
 }
 
 .editor-textstyle {
-    margin: 8px 0 8px 2em;
+    margin: var(--common-spacing) 0 var(--common-spacing) 2em;
 }
 
 .editor-textstyle button {
@@ -64,7 +81,7 @@ body {
 
 #editor-titlewindow {
     font-size: 2em;
-    margin: 8px 1em 0;
+    margin: var(--common-spacing) 0;
 }
 
 #editor-textwindow {
