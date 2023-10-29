@@ -21,6 +21,7 @@ export default function Sidebar({noteArray, currentNotePos, addNote, removeNote}
 
     return (
         <aside className="notes_sidebar">
+            
             <button id="notes_sidebar-add_note" onClick={addNote}>+</button>
             {sidebarNotes}
         </aside>
