@@ -3,6 +3,7 @@
     --bg-color: white;
     --txt-color: black;
     --special-color: #983f3f;
+    --button-highlight: rgb(100,100,100);
     --common-spacing: 8px;
 }
 
@@ -50,6 +51,7 @@ button:hover {
     color: var(--bg-color);
     border-style: none;
     border-radius: 4px;
+    box-shadow: 2px 4px 4px var(--button-highlight);
 }
 
 #notes_sidebar-add_note:hover {
@@ -70,13 +72,15 @@ button:hover {
     background-color: transparent;
     border: none;
     font-size: larger;
+    box-shadow: 0 4px 6px var(--button-highlight);
+    margin-left: var(--common-spacing);
 }
 
 .editor-textstyle button:hover,
 .editor-textstyle button:active {
     background-color: var(--special-color);
     color: var(--bg-color);
-    border-radius: 4px;
+    /*border-radius: 4px;*/
 }
 
 #editor-titlewindow {
@@ -87,4 +91,21 @@ button:hover {
 #editor-textwindow {
     width: 95%;
     min-height: 80vh;
+    resize: none;
+}
+
+#editor-bold {
+    font-weight: 700;
+}
+
+#editor-italic {
+    font-style: italic;
+}
+
+#editor-underline {
+    text-decoration: underline;
+}
+
+#editor-strikethrough {
+    text-decoration: line-through;
 }
