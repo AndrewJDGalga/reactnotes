@@ -72,7 +72,7 @@ button:hover {
     background-color: transparent;
     border: none;
     font-size: larger;
-    box-shadow: 0 4px 6px var(--button-highlight);
+    box-shadow: 2px 4px 6px var(--button-highlight);
     margin-left: var(--common-spacing);
 }
 
