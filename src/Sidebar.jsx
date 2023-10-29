@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import ToggleSwitch from "./ToggleSwitch";
 
 export default function Sidebar({noteArray, currentNotePos, addNote, removeNote}) {
 
@@ -21,7 +22,7 @@ export default function Sidebar({noteArray, currentNotePos, addNote, removeNote}
 
     return (
         <aside className="notes_sidebar">
-            
+            <ToggleSwitch />
             <button id="notes_sidebar-add_note" onClick={addNote}>+</button>
             {sidebarNotes}
         </aside>
