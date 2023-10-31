@@ -76,6 +76,7 @@ button:hover {
     font-size: larger;
     box-shadow: 2px 4px 6px var(--button-highlight);
     margin-left: var(--common-spacing);
+    color: var(--txt-color);
 }
 
 .editor-textstyle button:hover,
