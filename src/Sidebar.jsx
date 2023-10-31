@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import ToggleSwitch from "./ToggleSwitch";
 
 export default function Sidebar({noteArray, currentNotePos, addNote, removeNote}) {
+    const [darkMode, setDarkMode] = useState([getComputedStyle(root).getPropertyValue('--bg-color'), getComputedStyle(root).getPropertyValue('--txt-color')]);
 
     function setContent() {
         if(noteArray.length <= 0) return [];
@@ -20,9 +21,13 @@ export default function Sidebar({noteArray, currentNotePos, addNote, removeNote}
         setSidebarNotes(setContent)
     }, [noteArray])
 
+    function switchDark() {
+        console.log(darkMode);
+    }
+
     return (
         <aside className="notes_sidebar">
-            <ToggleSwitch />
+            <ToggleSwitch effectFunction={switchDark} />
             <button id="notes_sidebar-add_note" onClick={addNote}>+</button>
             {sidebarNotes}
         </aside>

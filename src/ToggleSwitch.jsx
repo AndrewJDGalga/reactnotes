@@ -1,8 +1,8 @@
 
-export default function ToggleSwitch(){
+export default function ToggleSwitch({effectFunction}){
     return (
         <div className="toggleswitch">
-            <button id="toggleswitch-toggle"></button>
+            <button id="toggleswitch-toggle" onClick={effectFunction}></button>
         </div>
     )
 }

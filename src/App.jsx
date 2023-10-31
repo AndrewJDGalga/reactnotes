@@ -17,7 +17,6 @@ function App() {
   const [notes, setNotes] = useState([
     new Note(0, newNotePhrase),
   ]);
-  //const [notePos, setNotePos] = useState(0);
   const [selectedNote, setSelectedNote] = useState(notes[0]);
 
   function newNote() {
@@ -48,7 +47,7 @@ function App() {
 
   return (
     <main className="noteapp-container">
-      <Sidebar noteArray={notes} currentNotePos={setCurrentNote} addNote={newNote} removeNote={trashNote} />
+      <Sidebar noteArray={notes} currentNotePos={setCurrentNote} addNote={newNote} removeNote={trashNote}/>
       <Editor />
     </main>
   )

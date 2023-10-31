@@ -118,7 +118,7 @@ button:hover {
 }
 
 #toggleswitch-toggle {
-    margin-top: 4px;
+    margin-top: var(--common-spacing);
     background-color: var(--bg-color);
     width: 100%;
     height: 100%;
