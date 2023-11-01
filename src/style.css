@@ -42,8 +42,9 @@ button:hover {
 
 .notes_sidebar-note button {
     background-color: var(--bg-color);
+    color: var(--txt-color);
     border-style: none;
-    border: 2px solid black;
+    border: 2px solid var(--txt-color);
 }
 
 .notes_sidebar-note-select {
@@ -54,10 +55,11 @@ button:hover {
 
 .notes_sidebar-note-delete {
     position: absolute;
+    font-size: 24px;
     bottom: 0;
     right: 0;
-    width: 48px;
-    height: 48px;
+    width: fit-content;
+    height: fit-content;
 }
 
 .notes_sidebar-note_selected button {
