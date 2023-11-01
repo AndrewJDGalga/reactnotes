@@ -40,6 +40,26 @@ button:hover {
     display: flex;
 }
 
+.notes_sidebar-note button {
+    background-color: var(--bg-color);
+    border-style: none;
+    border: 2px solid black;
+}
+
+.notes_sidebar-note-select {
+    position: relative;
+    height: 48px;
+    padding: 0 32px 0 0;
+}
+
+.notes_sidebar-note-delete {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+}
+
 .notes_sidebar-note_selected button {
     background-color: var(--special-color);
     color: var(--bg-color);
