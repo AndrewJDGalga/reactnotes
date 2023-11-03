@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sidebar from "./Sidebar"
 import Editor from "./Editor"
 import "./style.css"
@@ -14,16 +14,23 @@ class Note {
 
 function App() {
   const newNotePhrase = 'New Note';
+  const [curNoteID, setCurNoteID] = useState(0);
   const [notes, setNotes] = useState([
-    new Note(0, newNotePhrase),
+    new Note(curNoteID, newNotePhrase),
   ]);
   const [selectedNote, setSelectedNote] = useState(notes[0]);
 
+  useEffect(()=>{
+    setCurNoteID(prev=>prev+1);
+  }, []);
+
   function newNote() {
     setNotes( prev=>{
-      return [...prev, new Note(prev.length, newNotePhrase)]
+      setCurNoteID(prev=>prev+1);
+      return [...prev, new Note(curNoteID, newNotePhrase)]
     });
     console.log(notes);
+    console.log(curNoteID);
   }
 
   function trashNote(id) {
