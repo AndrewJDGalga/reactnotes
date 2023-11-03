@@ -15,25 +15,25 @@ class Note {
 function App() {
   const artificialNoteLimit = 10;
   const newNotePhrase = 'New Note';
-  const [curNoteID, setCurNoteID] = useState(0);
+  const [noteIDLimit, setNoteIDLimit] = useState(0);
   const [notes, setNotes] = useState([
-    new Note(curNoteID, newNotePhrase),
+    new Note(noteIDLimit, newNotePhrase),
   ]);
   const [selectedNote, setSelectedNote] = useState(notes[0]);
 
   useEffect(()=>{
-    setCurNoteID(prev=>prev+1);
+    setNoteIDLimit(prev=>prev+1);
   }, []);
 
   function newNote() {
     if(notes.length < artificialNoteLimit) {
       setNotes( prev=>{
-        setCurNoteID(prev=>prev+1);
-        return [...prev, new Note(curNoteID, newNotePhrase)]
+        setNoteIDLimit(prev=>prev+1);
+        return [...prev, new Note(noteIDLimit, newNotePhrase)]
       });
     }
     console.log(notes);
-    console.log(curNoteID);
+    console.log(noteIDLimit);
   }
 
   function trashNote(id) {
@@ -41,25 +41,29 @@ function App() {
       if(prev.length > 1) {
         return prev.filter(note => note.id !== id);
       } else {
-        setCurNoteID(0);
-        return [new Note(setCurNoteID, newNotePhrase)];
+        setNoteIDLimit(0);
+        return [new Note(noteIDLimit, newNotePhrase)];
       }
     });
   }
 
-  function setCurrentNote(id){
-    /*
-    setSelectedNote(prev=>{
-      return [
-        if()
-      ]
-    });*/
+  function setCurrentNote(id) {
+
   }
+
+  function setNoteTitle(titleChange) {
+    console.log(titleChange.target.value);
+  }
+
+  function setNoteContents(contentsChange) {
+    console.log(contentsChange.target.value);
+  }
+
 
   return (
     <main className="noteapp-container">
       <Sidebar noteArray={notes} currentNotePos={setCurrentNote} addNote={newNote} removeNote={trashNote}/>
-      <Editor />
+      <Editor noteTitle={setNoteTitle} noteContents={setNoteContents} />
     </main>
   )
 }
