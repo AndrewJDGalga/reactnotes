@@ -15,15 +15,11 @@ class Note {
 function App() {
   const artificialNoteLimit = 10;
   const newNotePhrase = 'New Note';
-  const [noteIDLimit, setNoteIDLimit] = useState(0);
+  const [noteIDLimit, setNoteIDLimit] = useState(1);
   const [notes, setNotes] = useState([
-    new Note(noteIDLimit, newNotePhrase),
+    new Note(0, newNotePhrase),
   ]);
   const [selectedNote, setSelectedNote] = useState(notes[0]);
-
-  useEffect(()=>{
-    setNoteIDLimit(prev=>prev+1);
-  }, []);
 
   function newNote() {
     if(notes.length < artificialNoteLimit) {
@@ -41,22 +37,29 @@ function App() {
       if(prev.length > 1) {
         return prev.filter(note => note.id !== id);
       } else {
-        setNoteIDLimit(0);
-        return [new Note(noteIDLimit, newNotePhrase)];
+        setNoteIDLimit(1);
+        return [new Note(0, newNotePhrase)];
       }
     });
   }
 
   function setCurrentNote(id) {
-
+    setSelectedNote(notes[id]);
+    //console.log(notes[id].id + " " + notes[id].content);
+    console.log(id);
+    console.log(notes[id]);
   }
 
   function setNoteTitle(titleChange) {
-    console.log(titleChange.target.value);
+    //console.log(titleChange.target.value);
+    selectedNote.title = titleChange.target.value;
+    //console.log(selectedNote.title);
   }
 
   function setNoteContents(contentsChange) {
-    console.log(contentsChange.target.value);
+    //console.log(contentsChange.target.value);
+    selectedNote.content = contentsChange.target.value;
+    //console.log(selectedNote.content);
   }
 
 
