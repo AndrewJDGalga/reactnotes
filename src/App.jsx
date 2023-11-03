@@ -13,6 +13,7 @@ class Note {
 }
 
 function App() {
+  const artificialNoteLimit = 10;
   const newNotePhrase = 'New Note';
   const [curNoteID, setCurNoteID] = useState(0);
   const [notes, setNotes] = useState([
@@ -25,10 +26,12 @@ function App() {
   }, []);
 
   function newNote() {
-    setNotes( prev=>{
-      setCurNoteID(prev=>prev+1);
-      return [...prev, new Note(curNoteID, newNotePhrase)]
-    });
+    if(notes.length < artificialNoteLimit) {
+      setNotes( prev=>{
+        setCurNoteID(prev=>prev+1);
+        return [...prev, new Note(curNoteID, newNotePhrase)]
+      });
+    }
     console.log(notes);
     console.log(curNoteID);
   }
@@ -38,7 +41,8 @@ function App() {
       if(prev.length > 1) {
         return prev.filter(note => note.id !== id);
       } else {
-        return [new Note(prev.length-1, newNotePhrase)];
+        setCurNoteID(0);
+        return [new Note(setCurNoteID, newNotePhrase)];
       }
     });
   }
