@@ -36,7 +36,9 @@ export default function Sidebar({noteArray, currentNotePos, addNote, removeNote}
         <aside className="notes_sidebar">
             <ToggleSwitch id="colormode-switch" effectFunction={switchDark} />
             <button id="notes_sidebar-add_note" onClick={addNote}>+</button>
-            {sidebarNotes}
+            <div className="notes_sidebar-note_spacer">
+                {sidebarNotes}
+            </div>
         </aside>
     )
 }
