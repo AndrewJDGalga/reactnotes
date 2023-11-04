@@ -21,6 +21,7 @@ function App() {
   ]);
   const [selectedNote, setSelectedNote] = useState(notes[0]);
   const [selectedNoteTitle, setSelectedNoteTitle] = useState(notes[0].title);
+  const [selectedNoteContent, setSelectedNoteContent] = useState(notes[0].content);
 
   function newNote() {
     if(notes.length < artificialNoteLimit) {
@@ -51,12 +52,15 @@ function App() {
 
   function setNoteTitle(titleChange) {
     //selectedNote.title = titleChange.target.value;
+    titleChange.preventDefault();
     setSelectedNoteTitle(titleChange.target.value);
     selectedNote.title = titleChange.target.value;
-    console.log(titleChange.target.value);
+    //console.log(titleChange.target.value);
   }
 
   function setNoteContents(contentsChange) {
+    contentsChange.preventDefault();
+    setSelectedNoteContent(contentsChange.target.value);
     selectedNote.content = contentsChange.target.value;
   }
 
@@ -64,7 +68,7 @@ function App() {
   return (
     <main className="noteapp-container">
       <Sidebar noteArray={notes} currentNote={setCurrentNote} addNote={newNote} removeNote={trashNote} titleUpdate={selectedNoteTitle}/>
-      <Editor noteTitle={setNoteTitle} noteContents={setNoteContents} currentNote={selectedNote} />
+      <Editor noteTitleChange={setNoteTitle} noteContentsChange={setNoteContents} currentNote={selectedNote} />
     </main>
   )
 }
