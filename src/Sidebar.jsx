@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import ToggleSwitch from "./ToggleSwitch";
 
-export default function Sidebar({noteArray, currentNotePos, addNote, removeNote}) {
+export default function Sidebar({noteArray, currentNote, addNote, removeNote, titleUpdate}) {
     const propCSSBG = '--bg-color', propCSSTXT = '--txt-color';
     const [darkMode, setDarkMode] = useState([getComputedStyle(root).getPropertyValue(propCSSBG), getComputedStyle(root).getPropertyValue(propCSSTXT)]);
 
@@ -9,8 +9,8 @@ export default function Sidebar({noteArray, currentNotePos, addNote, removeNote}
         if(noteArray.length <= 0) return [];
 
         return noteArray.map((item)=>{
-            return <div className={"notes_sidebar-note " + (item.selected && "notes_sidebar-note_selected")} key={item.id}>
-                    <button className="notes_sidebar-note-select" onClick={()=>currentNotePos(item.id)}>{item.title}</button>
+            return <div className="notes_sidebar-note" key={item.id}>
+                    <button className="notes_sidebar-note-select" onClick={()=>currentNote(item.id)}>{item.title}</button>
                     <button className="notes_sidebar-note-delete" onClick={()=>removeNote(item.id)}>X</button>
                 </div>
         });
@@ -20,10 +20,9 @@ export default function Sidebar({noteArray, currentNotePos, addNote, removeNote}
 
     useEffect(()=>{
         setSidebarNotes(setContent)
-    }, [noteArray])
+    }, [noteArray, titleUpdate])
 
     function switchDark() {
-        //console.log(darkMode);
         setDarkMode(prev=>{
             return prev.reverse();
         });
