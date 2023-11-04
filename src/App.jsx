@@ -64,7 +64,7 @@ function App() {
   return (
     <main className="noteapp-container">
       <Sidebar noteArray={notes} currentNote={setCurrentNote} addNote={newNote} removeNote={trashNote} titleUpdate={selectedNoteTitle}/>
-      <Editor noteTitle={setNoteTitle} noteContents={setNoteContents} />
+      <Editor noteTitle={setNoteTitle} noteContents={setNoteContents} currentNote={selectedNote} />
     </main>
   )
 }
