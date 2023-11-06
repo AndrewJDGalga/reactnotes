@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import ToggleSwitch from "./ToggleSwitch";
 
-export default function Sidebar({noteArray, currentNote, addNote, removeNote, titleUpdate}) {
+export default function Sidebar({noteArray, setCurrentNote, addNote, removeNote, titleUpdate}) {
     const propCSSBG = '--bg-color', propCSSTXT = '--txt-color';
     const [darkMode, setDarkMode] = useState([getComputedStyle(root).getPropertyValue(propCSSBG), getComputedStyle(root).getPropertyValue(propCSSTXT)]);
 
@@ -10,7 +10,7 @@ export default function Sidebar({noteArray, currentNote, addNote, removeNote, ti
 
         return noteArray.map((item)=>{
             return <div className="notes_sidebar-note" key={item.id}>
-                    <button className="notes_sidebar-note-select" onClick={()=>currentNote(item.id)}>{item.title}</button>
+                    <button className="notes_sidebar-note-select" onClick={()=>setCurrentNote(item.id)}>{item.title}</button>
                     <button className="notes_sidebar-note-delete" onClick={()=>removeNote(item.id)}>X</button>
                 </div>
         });

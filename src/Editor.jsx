@@ -1,8 +1,9 @@
-export default function Editor({noteTitleChange, noteContentsChange, currentNote}) {
+export default function Editor({noteTitleChange, noteContentsChange, currentNoteTitle, currentNoteContent}) {
+
     return (
         <article className="editor">
-            <input type="text" id="editor-titlewindow"  value={currentNote.title} onChange={noteTitleChange}></input>
-            <textarea id="editor-textwindow" value={currentNote.content} onChange={noteContentsChange}></textarea>
+            <input type="text" id="editor-titlewindow"  value={currentNoteTitle} onChange={noteTitleChange}></input>
+            <textarea id="editor-textwindow" value={currentNoteContent} onChange={noteContentsChange}></textarea>
         </article>
     )
 }

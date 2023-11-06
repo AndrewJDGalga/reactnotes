@@ -30,8 +30,6 @@ function App() {
         return [...prev, new Note(noteIDLimit, newNotePhrase)]
       });
     }
-    console.log(notes);
-    console.log(noteIDLimit);
   }
 
   function trashNote(id) {
@@ -45,31 +43,33 @@ function App() {
     });
   }
 
+  useEffect(()=>{
+    setCurrentNote(0);
+  }, [notes.length === 1]);
+
   function setCurrentNote(id) {
     setSelectedNote(notes[id]);
-    console.log(notes[id]);
+    setSelectedNoteTitle(notes[id].title);
+    setSelectedNoteContent(notes[id].content);
   }
 
   function setNoteTitle(titleChange) {
-    //selectedNote.title = titleChange.target.value;
     titleChange.preventDefault();
     setSelectedNoteTitle(titleChange.target.value);
     selectedNote.title = titleChange.target.value;
-    //console.log(titleChange.target.value);
   }
 
   function setNoteContents(contentsChange) {
     contentsChange.preventDefault();
     setSelectedNoteContent(contentsChange.target.value);
     selectedNote.content = contentsChange.target.value;
-    //console.log(`App val: ${value}`)
   }
 
 
   return (
     <main className="noteapp-container">
-      <Sidebar noteArray={notes} currentNote={setCurrentNote} addNote={newNote} removeNote={trashNote} titleUpdate={selectedNoteTitle}/>
-      <Editor noteTitleChange={setNoteTitle} noteContentsChange={setNoteContents} currentNote={selectedNote} />
+      <Sidebar noteArray={notes} setCurrentNote={setCurrentNote} addNote={newNote} removeNote={trashNote} titleUpdate={selectedNoteTitle}/>
+      <Editor noteTitleChange={setNoteTitle} noteContentsChange={setNoteContents} currentNoteTitle={selectedNoteTitle} currentNoteContent={selectedNoteContent} />
     </main>
   )
 }
