@@ -62,6 +62,7 @@ function App() {
     contentsChange.preventDefault();
     setSelectedNoteContent(contentsChange.target.value);
     selectedNote.content = contentsChange.target.value;
+    //console.log(`App val: ${value}`)
   }
 
 
