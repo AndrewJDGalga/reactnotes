@@ -1,23 +1,12 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function Editor({noteTitleChange, noteContentsChange, currentNote}) {
-    //const [noteChanged, isNoteChanged] = useState(false);
+    const [boldSet, isBoldSet] = useState(false);
 
-    /*
-    let noteTitle = currentNote.title;
-    let noteContent = currentNote.content;
-
-    useEffect(()=>{
-        noteTitle = currentNote.title;
-        noteContent = currentNote.content;
-        console.log("note changed and seen by editor");
-        //isNoteChanged(true);
-    }, [currentNote]);
-*/
-
-    //defaultValue={noteTitle}
-    //defaultValue={noteContent}
-    //rows="0" colums="0"
+    function textMod(text){
+        noteContentsChange(text);
+        console.log(text.target.value);
+    }
 
     return (
         <article className="editor">
@@ -28,7 +17,7 @@ export default function Editor({noteTitleChange, noteContentsChange, currentNote
                 <button id="editor-underline">Underline</button>
                 <button id="editor-strikethrough">Strikethrough</button>
             </div>
-            <textarea id="editor-textwindow" value={currentNote.content} onChange={noteContentsChange}></textarea>
+            <textarea id="editor-textwindow" value={currentNote.content} onChange={textMod}></textarea>
         </article>
     )
 }
