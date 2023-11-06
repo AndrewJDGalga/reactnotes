@@ -8,5 +8,7 @@
 !LICENSE
 !index.html
 !src/
+!src/components/
+!src/style/
 !*.jsx
 !*.css

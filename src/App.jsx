@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Sidebar from "./Sidebar"
-import Editor from "./Editor"
-import "./style.css"
+import Sidebar from "./components/Sidebar"
+import Editor from "./components/Editor"
+import "./style/style.css"
 
 class Note {
   constructor(id, title) {
